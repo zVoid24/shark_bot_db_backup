@@ -9,7 +9,7 @@ import (
 
 func RunBackup(cfg Config) (string, error) {
 	timestamp := time.Now().Format("2006-01-02_15-04-05")
-	file := fmt.Sprintf("%s/backup_%s.dump", cfg.BackupDir, timestamp)
+	file := fmt.Sprintf("%s/backup_%s.sql", cfg.BackupDir, timestamp)
 
 	pgDumpBin, err := resolvePostgresTool(cfg.PgDumpPath, "pg_dump")
 	if err != nil {
@@ -23,7 +23,7 @@ func RunBackup(cfg Config) (string, error) {
 		"-U", cfg.DBUser,
 		"-h", cfg.DBHost,
 		"-p", cfg.DBPort,
-		"-F", "c",
+		"-F", "p",
 		"-f", file,
 		cfg.DBName,
 	)
