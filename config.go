@@ -28,6 +28,6 @@ func LoadConfig() Config {
 		BackupDir:  "backups",
 		MaxBackups: 5,
 
-		TelegramToken: "8450644464:AAEYs9rMC_UmWcV9t9bC6WNNJdVSxpJbEDY",
+		TelegramToken: "",
 	}
 }
